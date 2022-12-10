@@ -1,13 +1,19 @@
 ﻿//Задайте одномерный массив, заполненный случайными числами. 
 //Найдите сумму элементов, стоящих на нечётных позициях.
 
-void mass(int[] array) //создаёт массив с рандомными значениями
+int[] CreateArray(int size)
 {
-    Random rand = new Random();
-    for (int i = 0; i < array.Length; i++)
-    {
-        array[i] = rand.Next();
-    }
+    int[] array = new int[size];
+    for (int i = 0; i < size; i++)
+        array[i] = new Random().Next();
+    return array;
+}
+
+void PrintArray(int[] array)
+{
+    foreach (int el in array)
+        Console.Write($"{el} ");
+    Console.WriteLine();
 }
 
 int sum_res(int[] array) //Суммирует все значения на нечётных позициях
@@ -24,9 +30,7 @@ int sum_res(int[] array) //Суммирует все значения на не�
 Console.WriteLine("Введите размер массива");
 int size = Convert.ToInt32(Console.ReadLine());
 
-int[] array = new int[size];
+int[] array = CreateArray(size);
+PrintArray(array);
 
-mass(array);
-
-Console.WriteLine($"массив - {string.Join(",", array)}");
 Console.WriteLine($"сумма чисел с нечётными индексами - {sum_res(array)}");
