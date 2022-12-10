@@ -1,11 +1,10 @@
 ﻿//Задайте массив вещественных чисел. 
 //Найдите разницу между максимальным и минимальным элементов массива.
 
-Double[] CreateRandomArray(double[] array)
+void CreateRandomArray(double[] array)
 {
     for (int i = 0; i < array.Length; i++)
         array[i] = new Random().NextDouble() * 10000;
-    return array;
 }
 
 void PrintArray(double[] array)
